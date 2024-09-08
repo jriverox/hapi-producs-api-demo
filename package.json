@@ -33,12 +33,12 @@
     "pg": "^8.12.0",
     "pino": "^8.14.1",
     "pino-caller": "^3.4.0",
+    "reflect-metadata": "^0.2.2",
     "ts-mapper": "^1.2.4",
     "typeorm": "^0.3.20",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "typescript": "^5.5.4",
     "@hapi/lab": "^25.1.2",
     "@types/hapi": "^18.0.8",
     "@types/jest": "^29.5.1",
@@ -47,11 +47,11 @@
     "@types/uuid": "^9.0.7",
     "jest": "^29.5.0",
     "jest-html-reporter": "3.10.1",
-    "reflect-metadata": "^0.1.14",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
   },
   "jest": {
     "preset": "ts-jest",
