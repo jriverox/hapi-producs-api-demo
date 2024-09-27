@@ -7,13 +7,23 @@ export const productRoutes = (server: Server) => {
   server.route({
     method: 'GET',
     path: '/products/{id}',
-    handler: productController.getById
+    handler: productController.getById,
+    options: {
+      description: 'Gets a product by the id',
+      notes: 'Returns a product by the id passed in the path',
+      tags: ['api'], // Necesario para que aparezca en la documentación de Swagger
+    }
   });
 
   server.route({
     method: 'GET',
     path: '/products',
-    handler: productController.getAll
+    handler: productController.getAll,
+    options: {
+      description: 'Gets all products',
+      notes: 'Returns all products',
+      tags: ['api'], // Necesario para que aparezca en la documentación de Swagger
+    }
   });
   
   server.route({
@@ -21,9 +31,12 @@ export const productRoutes = (server: Server) => {
     path: '/products',
     handler: productController.create,
     options: {
+      description: 'Creates a new product',
+      notes: 'Returns the created product',
+      tags: ['api'], // Necesario para que aparezca en la documentación de Swagger
       validate: {
-          payload: productSchema
+          payload: productSchema,
       }
-  }
+    }
   })
 };

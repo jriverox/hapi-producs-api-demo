@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p .",
-    "start": "node dist/index.js",
+    "start": "node dist/src/index.js",
     "dev": "ts-node-dev src/index.ts"
   },
   "repository": {
@@ -26,8 +26,11 @@
   "homepage": "https://github.com/jriverox/hapi-producs-api-demo#readme",
   "dependencies": {
     "@hapi/hapi": "^21.3.10",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/vision": "^7.0.3",
     "dotenv": "^16.4.5",
     "hapi-k8s-health": "^1.1.1",
+    "hapi-swagger": "^17.3.0",
     "joi": "^17.13.3",
     "moment": "^2.29.4",
     "pg": "^8.12.0",

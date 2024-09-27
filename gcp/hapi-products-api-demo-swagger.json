@@ -1,0 +1,169 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "jrx-products-api-58203550541.us-central1.run.app",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "produces": ["application/json"],
+  "tags": [
+    {
+      "name": "products",
+      "description": "Operations related to products"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Gets all products",
+        "operationId": "getProducts",
+        "description": "Returns all products",
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        },
+        "x-google-backend": {
+          "address": "https://jrx-products-api-58203550541.us-central1.run.app/",
+          "path_translation": "APPEND_PATH_TO_ADDRESS"
+        }
+      },
+      "post": {
+        "summary": "Creates a new product",
+        "operationId": "postProducts",
+        "description": "Returns the created product",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "description": "Product payload",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully created",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        },
+        "x-google-backend": {
+          "address": "https://jrx-products-api-58203550541.us-central1.run.app/",
+          "path_translation": "APPEND_PATH_TO_ADDRESS"
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Product id"
+          }
+        ],
+        "summary": "Gets a product by the id",
+        "operationId": "getProductsId",
+        "description": "Returns a product by the id passed in the path",
+        "tags": [
+          "products"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        },
+        "x-google-backend": {
+          "address": "https://jrx-products-api-58203550541.us-central1.run.app/",
+          "path_translation": "APPEND_PATH_TO_ADDRESS"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 30
+        },
+        "name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 100
+        },
+        "description": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0.01
+        },
+        "category": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
+        },
+        "stock": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "company": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
+        },
+        "companyEmail": {
+          "type": "string",
+          "format": "email"
+        },
+        "originCountry": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        }
+      },
+      "required": [
+        "code",
+        "name",
+        "description",
+        "price",
+        "category",
+        "company",
+        "originCountry"
+      ]
+    }
+  }
+}
